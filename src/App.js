@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Navbar from "./componenet/Navbar";
+import Carusal from "./componenet/Carusal";
+import ProductList from "./componenet/ProductList";
+import About from "./componenet/About";
+import {Routes,Route} from "react-router-dom"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Carusal/>
+            <ProductList/>
+          </>
+        }>
+        </Route>
+        <Route path="/about" element={
+          <>
+            <About/>
+          </>
+        }>
+
+        </Route>
+      </Routes>
+      
+      
+      
     </div>
   );
 }
